@@ -1,9 +1,11 @@
-Enunciado do desafio que já cumpri:
+Enunciado do desafio que já consegui cumprir:
+
 Você alguma vez já jogou algum jogo que te desse mais de uma escolha e, dependendo do que você escolhesse, o destino do personagem seria totalmente diferente?
 
 Hoje você vai desenvolver um exemplo assim com Javascript!
 
 Eu quero que você trabalhe com estruturas de controle de fluxo. Esse jeito complicado de falar só quer dizer que, assim como nos jogos, a história que você montar 
+
 precisa se adaptar às respostas dadas por quem está jogando.
 
 Para isso, você vai precisar de algumas estruturas capazes de alterar o fluxo da aplicação, como for, while, if e else. Todas essas conseguem cumprir esse objetivo, dada uma certa condição.
