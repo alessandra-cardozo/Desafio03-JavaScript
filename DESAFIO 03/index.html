@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Desafio de Escolhas</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            color: #333;
+            text-align: center;
+            padding: 20px;
+        }
+        h1 {
+            color: #2c3e50;
+        }
+        div {
+            margin: 20px auto;
+            padding: 20px;
+            border-radius: 10px;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            max-width: 600px;
+        }
+        p {
+            font-size: 1.2em;
+        }
+        button {
+            padding: 10px 20px;
+            margin: 10px;
+            border: none;
+            border-radius: 5px;
+            background-color: #3498db;
+            color: #fff;
+            font-size: 1em;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        button:hover {
+            background-color: #2980b9;
+        }
+        input[type="text"] {
+            padding: 10px;
+            font-size: 1em;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            width: 80%;
+        }
+    </style>
+</head>
+<body>
+    <h1>Escolha o seu caminho na programação</h1>
+    <div id="fase1">
+        <p>Você quer seguir para a área de Front-End ou seguir para a área de Back-End?</p>
+        <button id="frontendBtn">Front-End</button>
+        <button id="backendBtn">Back-End</button>
+    </div>
+
+    <div id="fase2" style="display:none;">
+        <p id="perguntaFase2"></p>
+        <button id="opcao1Btn"></button>
+        <button id="opcao2Btn"></button>
+    </div>
+
+    <div id="fase3" style="display:none;">
+        <p>Você quer se especializar na área escolhida ou seguir se desenvolvendo para se tornar Fullstack?</p>
+        <button id="especializarBtn">Se especializar</button>
+        <button id="fullstackBtn">Fullstack</button>
+    </div>
+
+    <div id="fase4" style="display:none;">
+        <p>Quais são as tecnologias nas quais você gostaria de se especializar ou conhecer?</p>
+        <input type="text" id="tecnologiaInput">
+        <button id="adicionarBtn">Adicionar</button>
+        <p id="tecnologiasLista"></p>
+        <p>Tem mais alguma tecnologia que você gostaria de aprender?</p>
+        <button id="simBtn">Sim</button>
+        <button id="naoBtn">Não</button>
+    </div>
+
+    <div id="mensagemFinal" style="display:none;">
+        <p id="mensagem"></p>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const fase1 = document.getElementById("fase1");
+            const fase2 = document.getElementById("fase2");
+            const fase3 = document.getElementById("fase3");
+            const fase4 = document.getElementById("fase4");
+            const mensagemFinal = document.getElementById("mensagemFinal");
+
+            const frontendBtn = document.getElementById("frontendBtn");
+            const backendBtn = document.getElementById("backendBtn");
+            const opcao1Btn = document.getElementById("opcao1Btn");
+            const opcao2Btn = document.getElementById("opcao2Btn");
+            const especializarBtn = document.getElementById("especializarBtn");
+            const fullstackBtn = document.getElementById("fullstackBtn");
+            const adicionarBtn = document.getElementById("adicionarBtn");
+            const simBtn = document.getElementById("simBtn");
+            const naoBtn = document.getElementById("naoBtn");
+            const tecnologiaInput = document.getElementById("tecnologiaInput");
+            const tecnologiasLista = document.getElementById("tecnologiasLista");
+            const mensagem = document.getElementById("mensagem");
+
+            let tecnologias = [];
+
+            frontendBtn.addEventListener("click", function() {
+                fase1.style.display = "none";
+                fase2.style.display = "block";
+                document.getElementById("perguntaFase2").textContent = "Você quer aprender React ou aprender Vue?";
+                opcao1Btn.textContent = "React";
+                opcao2Btn.textContent = "Vue";
+            });
+
+            opcao1Btn.addEventListener("click", function() {
+                fase2.style.display = "none";
+                fase3.style.display = "block";
+            });
+
+            opcao2Btn.addEventListener("click", function() {
+                fase2.style.display = "none";
+                fase3.style.display = "block";
+            });
+
+            backendBtn.addEventListener("click", function() {
+                fase1.style.display = "none";
+                fase2.style.display = "block";
+                document.getElementById("perguntaFase2").textContent = "Você quer aprender C# ou aprender Java?";
+                opcao1Btn.textContent = "C#";
+                opcao2Btn.textContent = "Java";
+            });
+
+            opcao1Btn.addEventListener("click", function() {
+                fase2.style.display = "none";
+                fase3.style.display = "block";
+            });
+
+            opcao2Btn.addEventListener("click", function() {
+                fase2.style.display = "none";
+                fase3.style.display = "block";
+            });
+
+            especializarBtn.addEventListener("click", function() {
+                fase3.style.display = "none";
+                fase4.style.display = "block";
+                mensagem.textContent = "Ótimo! Você escolheu se especializar na sua área escolhida.";
+                mensagemFinal.style.display = "block";
+            });
+
+            fullstackBtn.addEventListener("click", function() {
+                fase3.style.display = "none";
+                fase4.style.display = "block";
+                mensagem.textContent = "Incrível! Você está no caminho para se tornar Fullstack.";
+                mensagemFinal.style.display = "block";
+            });
+
+            adicionarBtn.addEventListener("click", function() {
+                const tecnologia = tecnologiaInput.value;
+                if (tecnologia) {
+                    tecnologias.push(tecnologia);
+                    tecnologiasLista.textContent += tecnologia + ", ";
+                    tecnologiaInput.value = "";
+                }
+            });
+
+            simBtn.addEventListener("click", function() {
+                tecnologiaInput.style.display = "block";
+                adicionarBtn.style.display = "block";
+            });
+
+            naoBtn.addEventListener("click", function() {
+                fase4.style.display = "none";
+                mensagem.textContent += ` Você escolheu aprender as seguintes tecnologias: ${tecnologias.join(", ")}.`;
+                mensagemFinal.style.display = "block";
+            });
+        });
+    </script>
+</body>
+</html>
