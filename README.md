@@ -1,4 +1,4 @@
-Enunciado do desafio que já consegui cumprir:
+Enunciado do desafio:
 
 Você alguma vez já jogou algum jogo que te desse mais de uma escolha e, dependendo do que você escolhesse, o destino do personagem seria totalmente diferente?
 
